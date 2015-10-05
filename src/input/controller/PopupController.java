@@ -24,7 +24,10 @@ public class PopupController
 		int age;
 		
 		String tempAge = myPopups.getAnswer("You typed in " + name);
-		
+		while(!isInteger(tempAge))
+		{
+			tempAge = myPopups.getAnswer("type in a vaild integer");
+		}
 		if(isInteger(tempAge))
 		{
 			age = Integer.parseInt(tempAge);
@@ -39,6 +42,10 @@ public class PopupController
 		double weight;
 		
 		String tempWeight = myPopups.getAnswer("Type in your weight");
+		while(!isDouble(tempWeight));
+		{
+			tempWeight = myPopups.getAnswer("type in a vaild double");
+		}
 		
 		if(isDouble(tempWeight))
 		{
@@ -55,44 +62,6 @@ public class PopupController
 		
 		myThing = new Thing(name, age, weight);
 		
-	}
-			
-	
-	private boolean isInteger(String input)
-	{
-		boolean isInt = false;
 		
-		try
-		}
-			int vaildInteger = Integer.parseInt(input);
-			isInt = true;
-		{
-		catch(NumberFormatException)
-		
-		}
-		return isInt;
-		{
-		myPopups.displayResponse("You did not type in a vaild integer.");
-		}
-		
-		
-	}
 	
-	
-	
-	private boolean isDouble(String input)	
-	}
-	boolean isDouble = false;
-	
-	try
-	{
-		double vaildDouble = Double.parseDouble();
-		isDouble = true;
-	}
-		catch(NumberFormatException error)
-	{
-		myPopups.displayResponse("You did not put in a vaild double.");
-	}
-	
-	return isDouble;
 }
